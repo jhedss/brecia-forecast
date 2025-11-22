@@ -1,0 +1,139 @@
+.product-card {
+  background: #FEFFFF;
+  border: 1px solid #DEF2F1;
+  border-radius: 10px;
+  padding: 18px;
+  margin-bottom: 16px;
+  transition: all 0.2s ease;
+}
+
+.product-card:hover {
+  border-color: #3AAFA9;
+  box-shadow: 0 2px 8px rgba(58, 175, 169, 0.15);
+}
+
+.product-card.needs-reorder {
+  border-color: #FF6B6B;
+  background: #FEFFFF;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #DEF2F1;
+}
+
+.product-name {
+  margin: 0;
+  color: #17252A;
+  font-size: 1.1rem;
+  font-weight: 600;
+  flex: 1;
+  text-transform: uppercase;
+}
+
+.priority-badge {
+  padding: 5px 12px;
+  border-radius: 6px;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+.product-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  background: #DEF2F1;
+  border-radius: 6px;
+  transition: background 0.2s;
+}
+
+.stat-item:hover {
+  background: #3AAFA9;
+  color: white;
+}
+
+.stat-item.warning {
+  background: #FFF3CD;
+  border-left: 3px solid #FFA500;
+}
+
+.stat-item.suggestion {
+  background: #D1ECF1;
+  border-left: 3px solid #2B7A78;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: #17252A;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.stat-item:hover .stat-label {
+  color: white;
+}
+
+.stat-item.warning .stat-label,
+.stat-item.suggestion .stat-label {
+  color: #17252A;
+}
+
+.stat-value {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #2B7A78;
+}
+
+.stat-item:hover .stat-value {
+  color: white;
+}
+
+.stat-item.warning .stat-value {
+  color: #FF6B6B;
+}
+
+.stat-item.suggestion .stat-value {
+  color: #2B7A78;
+}
+
+.status-ok {
+  margin-top: 12px;
+  padding: 10px;
+  background: #D4EDDA;
+  border-radius: 6px;
+  text-align: center;
+  color: #155724;
+  font-weight: 500;
+  font-size: 0.9rem;
+}
+
+
+@media (max-width: 768px) {
+  .product-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  
+  .priority-badge {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+  
+  .product-stats {
+    grid-template-columns: 1fr;
+  }
+}
+
