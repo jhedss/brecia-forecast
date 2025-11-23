@@ -32,11 +32,31 @@ export default function InventoryPredictor() {
     const loadProducts = async () => {
       const fetchedProducts = await fetchProducts(100);
 
-      const updatedProducts = fetchedProducts.map((prod, index) => ({
+      // Remove duplicate products by name
+      const uniqueProductsMap = new Map();
+      for (const prod of fetchedProducts) {
+        if (!uniqueProductsMap.has(prod.name)) {
+          uniqueProductsMap.set(prod.name, prod);
+        }
+      }
+      const uniqueProducts = Array.from(uniqueProductsMap.values());
+
+      // Add new custom product
+      const newProduct = {
+        id: uniqueProducts.length + 1,
+        name: "New Product X",
+        currentInventory: 20,
+        avgSalesPerWeek: 10,
+        daysToReplenish: 5,
+      };
+
+      const updatedProducts = uniqueProducts.map((prod, index) => ({
         ...prod,
         isCritical: index % 10 === 0,
         isHighPriority: index % 7 === 0,
       }));
+
+      updatedProducts.push(newProduct);
 
       setProducts(updatedProducts);
 
