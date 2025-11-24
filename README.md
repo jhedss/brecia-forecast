@@ -1,6 +1,5 @@
-# Forecast — Shoes Inventory Reorder Predictor
-
-Student-friendly demo using React + TensorFlow.js
+# Inventory Forecast dashboard
+ React + TensorFlow.js
 
 What it is
 - A React app that trains a simple TensorFlow.js model in the browser to predict whether a shoe SKU should be reordered.
